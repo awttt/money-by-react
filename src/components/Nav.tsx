@@ -11,12 +11,14 @@ box-shadow: 0 0 3px rgba(0,0,0,0.25);
 >ul{
 display: flex;
 >li{
-width: 33.33333%;
-text-align: center;
-padding: 16px;
+>a{
 display: flex;
 flex-direction: column;
 align-items: center;
+padding: 4px 0;
+}
+width: 33.33333%;
+text-align: center;
 }
 }
 `
@@ -26,16 +28,25 @@ const Nav = ()=>{
     <NavWrapper>
       <ul>
         <li>
-          <Icon name="icon_label"/>
-          <Link to="/tags">标签</Link>
+
+          <Link to="/tags">
+            <Icon name="icon_label"/>
+            标签
+          </Link>
         </li>
         <li>
-          <Icon name="money"/>
-          <Link to="/money">记账</Link>
+
+          <Link to="/money">
+            <Icon name="money"/>
+            记账
+          </Link>
         </li>
         <li>
-          <Icon name="chart"/>
-          <Link to="/statistics">统计</Link>
+
+          <Link to="/statistics">
+            <Icon name="chart"/>
+            统计
+          </Link>
         </li>
       </ul>
     </NavWrapper>

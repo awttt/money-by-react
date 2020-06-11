@@ -6,7 +6,6 @@ import {
   Redirect
 } from 'react-router-dom';
 import './index.scss';
-
 import Money from './views/Money';
 import Statistics from './views/Statistics';
 import Tags from './views/Tags';
@@ -39,6 +38,7 @@ function App() {
       </Switch>
 
     </Router>
+    
     </AppWrapper>
   );
 }

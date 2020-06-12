@@ -22,7 +22,7 @@ position: absolute;
 bottom: 0;
 width: 100%;
 left: 0;
-transition:.3s;
+
 }
 }
 }

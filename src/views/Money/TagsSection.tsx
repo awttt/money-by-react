@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 import React, {useState} from 'react';
 
-const TagsSection:React.FunctionComponent = (props) => {
+
+type Props = {
+  selected:string[]
+  onChange:(selected:string[])=>void
+}
+const TagsSection:React.FunctionComponent<Props> = (props) => {
   const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
-  const [selectedTags,setSelectedTags]=useState<string[]>([])
+  const selectedTags = props.selected;
+
   const onAddTag=()=>{
   const tagName= window.prompt('新标签的名称为')
     if(tagName!==null){
@@ -13,10 +19,10 @@ const TagsSection:React.FunctionComponent = (props) => {
   const onToggleTag=(tag:string)=>{
   const index = selectedTags.indexOf(tag)
     if(index>=0){
-    setSelectedTags(selectedTags.filter(t=>t!==tag))
+    props.onChange(selectedTags.filter(t=>t!==tag))
       //如果tag已经被选中，就复制所有没有被选中的tag,作为新的 selectedTag
     }else {
-      setSelectedTags([...selectedTags,tag])
+      props.onChange([...selectedTags,tag])
     }
   }
   return (

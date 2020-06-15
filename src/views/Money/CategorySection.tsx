@@ -28,16 +28,21 @@ left: 0;
 }
 `;
 
-const CategorySection:React.FunctionComponent =()=>{
-  const [category,setCategory] = useState('-')//+表示收入，-表示支出
+type Props = {
+  value: '-'|'+'
+  onChange:(value: '-'|'+')=>void
+}
+
+const CategorySection:React.FunctionComponent<Props> =(props)=>{
+ const  category = props.value
   return(
     <Wrapper>
       <ul>
         <li className={category==='-'?'selected':''}
-        onClick={()=>setCategory('-')}
+        onClick={()=>props.onChange('-')}
         >支出</li>
         <li className={category==='+'?'selected':''}
-            onClick={()=>setCategory('+')}
+            onClick={()=>props.onChange('+')}
         >收入</li>
       </ul>
     </Wrapper>

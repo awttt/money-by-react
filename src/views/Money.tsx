@@ -1,6 +1,5 @@
 import Layout from '../components/Layout';
 import React, {useState} from 'react';
-
 import NumberPadSection from './Money/NumberPadSection';
 import CategorySection from './Money/CategorySection';
 import TagsSection from './Money/TagsSection';

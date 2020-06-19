@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Wrapper from './NumberPadSection/Wrapper';
 import generteOutput from './NumberPadSection/generateOutput';
 

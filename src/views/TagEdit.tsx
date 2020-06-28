@@ -10,7 +10,7 @@ type Params = {
 }
 
 const TagEdit:React.FunctionComponent = () =>{
-  const {findTag,updateTag} = useTags()
+  const {findTag,updateTag,deleteTag} = useTags()
   let {id:idString} = useParams<Params>()
 
   const tag = findTag(parseInt(idString))
@@ -23,15 +23,18 @@ const TagEdit:React.FunctionComponent = () =>{
       </span>
       </header>
       <span>标签名</span>
-      <input type="text" placeholder='标签名'
-      value={tag.name}
-             onChange={(e)=>{
-              updateTag(tag.id,{name:e.target.value})
-             }}
-      />
-  <div>
-    <Button>删除标签</Button>
-  </div>
+      {tag?<div>
+        <input type="text" placeholder='标签名'
+               value={tag.name}
+               onChange={(e)=>{
+                 updateTag(tag.id,{name:e.target.value})
+               }}
+        />
+        <div>
+          <Button onClick={()=>deleteTag(tag.id)}>删除标签</Button>
+        </div>
+      </div>:<div>tag不存在</div>}
+
     </Layout>
 
 )

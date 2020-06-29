@@ -4,10 +4,20 @@ import {useParams} from 'react-router-dom'
 import Layout from '../components/Layout';
 import Icon from '../components/Icon';
 import Button from '../components/Button';
+import styled from 'styled-components';
 
 type Params = {
   id : string
 }
+
+const Topbar = styled.header`
+display: flex;
+justify-content: space-between;
+line-height: 20px;
+padding: 14px;
+background: white;
+align-items: center;
+`
 
 const TagEdit:React.FunctionComponent = () =>{
   const {findTag,updateTag,deleteTag} = useTags()
@@ -16,12 +26,13 @@ const TagEdit:React.FunctionComponent = () =>{
   const tag = findTag(parseInt(idString))
   return(
     <Layout>
-      <header>
+      <Topbar>
         <Icon name='left'/>
           <span>
         编辑标签
       </span>
-      </header>
+        <Icon />
+      </Topbar>
       <span>标签名</span>
       {tag?<div>
         <input type="text" placeholder='标签名'

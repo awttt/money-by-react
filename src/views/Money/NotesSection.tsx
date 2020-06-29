@@ -24,7 +24,7 @@ const NotesSection:React.FunctionComponent<Props> = (props)=>{
              type="text"
              value={note}
              onChange={onChange}
-
+              placeholder="请填写备注"
       />
 
     </Wrapper>

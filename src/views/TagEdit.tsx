@@ -1,6 +1,6 @@
 import React from 'react';
-import useTags from '../useTags';
-import {useParams} from 'react-router-dom'
+import useTags from '../hooks/useTags';
+import {useParams,useHistory} from 'react-router-dom'
 import Layout from '../components/Layout';
 import Icon from '../components/Icon';
 import Button from '../components/Button';
@@ -29,14 +29,19 @@ align-items: center;
 `
 
 const TagEdit:React.FunctionComponent = () =>{
-  const {findTag,deleteTag} = useTags()
+  const {findTag,deleteTag,updateTag} = useTags()
   let {id:idString} = useParams<Params>()
+
+  const history = useHistory()
+  const onClickBack = () =>{
+    history.goBack()
+  }
 
   const tag = findTag(parseInt(idString))
   return(
     <Layout>
       <Topbar>
-        <Icon name='left'/>
+        <Icon name='left' onClick={onClickBack}/>
           <span>
         编辑标签
       </span>
@@ -45,7 +50,9 @@ const TagEdit:React.FunctionComponent = () =>{
 
       {tag?<div>
         <InputWrapper>
-        <Input label="标签名" type="text" placeholder="标签名"/>
+        <Input label="标签名" type="text" placeholder="标签名" value={tag.name}
+              onChange={(e)=>{updateTag(tag.id,{name:e.target.value})} }
+        />
         </InputWrapper>
         <div>
           <Center>

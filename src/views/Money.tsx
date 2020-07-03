@@ -10,9 +10,6 @@ import useRecords from '../hooks/useRecords';
 
 type Category = '-'|'+'
 
-const defaultFormData={
-
-}
 
 function Money() {
   const [selected,setSelected] = useState({
@@ -22,7 +19,7 @@ function Money() {
     amount:0
   })
 
-   const {records,addRecords} = useRecords()
+   const {addRecords} = useRecords()
 
   const onChange=(obj:Partial<typeof selected>)=>{
     setSelected({...selected,...obj})

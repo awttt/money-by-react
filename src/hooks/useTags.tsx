@@ -48,7 +48,13 @@ const useTags = () =>{
       setTags([...tags,{id:creatId(),name:tagName}])
     }
   }
-  return {useRef,tags,addTag,setTags,findTag,updateTag,findTagIndex,deleteTag};
+
+  const getName =(id:number)=>{
+     const tag = tags.filter(t=>t.id===id)[0]
+    return tag ? tag.name :''
+  }
+
+  return {getName,useRef,tags,addTag,setTags,findTag,updateTag,findTagIndex,deleteTag};
 }
 
 export default useTags

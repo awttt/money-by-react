@@ -30,8 +30,6 @@ addRecords(selected);
   }
   return (
     <Layout>
-      {JSON.stringify(selected)}
-      <hr/>
       <CategorySection value={selected.category}
                        onChange={category =>onChange({category})}
         />

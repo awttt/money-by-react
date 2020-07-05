@@ -12,9 +12,9 @@ flex-direction: column;
 `
 
 const Main = styled.div`
-
 flex-grow: 1;
 overflow: auto;
+
 `
 
 type  Props={
@@ -23,9 +23,8 @@ type  Props={
 const Layout = (props:any)=>{
   return (
     <Wrapper>
-      <Main>
+      <Main className={props.className}>
         {props.children}
-
       </Main>
       <Nav />
     </Wrapper>

@@ -5,11 +5,16 @@ import CategorySection from './Money/CategorySection';
 import TagsSection from './Money/TagsSection';
 import NotesSection from './Money/NotesSection';
 import useRecords from '../hooks/useRecords';
+import styled from 'styled-components';
 
 
 
 type Category = '-'|'+'
 
+const MyLayout = styled(Layout)`
+ display:flex;
+flex-direction: column;
+`;
 
 function Money() {
   const [selected,setSelected] = useState({
@@ -18,9 +23,7 @@ function Money() {
     category:'-' as Category,
     amount:0
   })
-
    const {addRecords} = useRecords()
-
   const onChange=(obj:Partial<typeof selected>)=>{
     setSelected({...selected,...obj})
   }
@@ -29,7 +32,9 @@ addRecords(selected);
     alert('添加成功')
   }
   return (
-    <Layout>
+
+    <MyLayout>
+
       <CategorySection value={selected.category}
                        onChange={category =>onChange({category})}
         />
@@ -43,7 +48,9 @@ addRecords(selected);
                         onChange={amount =>onChange({amount})}
       onok={submit}
       />
-    </Layout>
+
+    </MyLayout>
+
   );
 
 }
